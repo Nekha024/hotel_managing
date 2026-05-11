@@ -59,7 +59,7 @@ class Profile(models.Model):
     instagram=models.URLField(max_length=200,null=True,blank=True)
 
     wallet=models.DecimalField(max_digits=12, decimal_places=2,default=0.00)
-    varified=models.BooleanField(default=False)
+    verified=models.BooleanField(default=False)
 
     date=models.DateTimeField(auto_now_add=True)
 

@@ -41,7 +41,7 @@ class User(AbstractUser):
 
 class Profile(models.Model):
     pid=ShortUUIDField(length=7, max_length=25, alphabet='adcdefghijklmnopqrstuvwxyz1234')
-    image=models.FileField(upload_to='user_directory_path',default='default.jpg',null=True,blank=True)
+    image=models.FileField(upload_to=user_directory_path,default='default.jpg',null=True,blank=True)
     user=models.OneToOneField("User", on_delete=models.CASCADE)
     full_name=models.CharField(max_length=100,null=True,blank=True)
     phone=models.CharField(max_length=20,null=True,blank=True)
@@ -53,7 +53,7 @@ class Profile(models.Model):
     address=models.CharField(max_length=1000,null=True,blank=True)
 
     identity_type=models.CharField(max_length=290,choices=IDENTITY_TYPE,null=True,blank=True)
-    identity_image=models.FileField(upload_to='user_directory_path',default='id.jpg',null=True,blank=True)
+    identity_image=models.FileField(upload_to=user_directory_path,default='id.jpg',null=True,blank=True)
 
     facebook=models.URLField(max_length=200,null=True,blank=True)
     instagram=models.URLField(max_length=200,null=True,blank=True)

@@ -1,7 +1,16 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from userauth.models import User,Profile
+from userauth.forms import UserRegisterForm
 
-# Create your views here.
-def home(request):
-    a='home'
-    return HttpResponse(a)
+def RegisterView(request):
+    form=UserRegisterForm(request.POST or None)
+    print("form ===", form)#info
+
+    # if form.is_valid():
+    #     form.save()
+    #     full_name = form.cleaned_data.get("full_name")
+    #     print("full name ===", full_name)#info
+    context = {
+        "form":form
+    }
+    return render(request,"userauth/sign-up.html",context)
